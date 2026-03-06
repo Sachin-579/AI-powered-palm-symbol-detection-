@@ -1,6 +1,6 @@
 ✋ Palmistry Symbol Detection & Horoscope Interpretation
 
-This project detects palm symbols from hand images using a YOLOv8 deep learning model and generates palm interpretations along with horoscope insights based on zodiac calculations.
+This project detects palm symbols from hand images using a YOLOv8 deep learning model and generates interpretations along with horoscope insights based on zodiac calculations.
 
 The system combines Computer Vision + Palmistry + Zodiac Analysis to produce a descriptive life interpretation.
 
@@ -19,10 +19,10 @@ NumPy & Pandas
 📂 Project Structure
 Palmistry_Project
 │
-├── final palmistry.zip      # Dataset (images + labels)
+├── final palmistry.zip        # Dataset (images + labels)
 │
-├── newapp.py                # Main Streamlit detection application
-├── zodiac.py                # Zodiac calculation & horoscope descriptions
+├── newapp.py                  # Main Streamlit detection application
+├── zodiac.py                  # Zodiac calculation & horoscope descriptions
 │
 └── README.md
 🚀 Features
@@ -40,14 +40,10 @@ Palmistry_Project
 git clone https://github.com/yourusername/palmistry-project.git
 cd palmistry-project
 2️⃣ Create Virtual Environment (Recommended)
-
-Windows:
-
+Windows
 python -m venv venv
 venv\Scripts\activate
-
-Mac/Linux:
-
+Mac / Linux
 python3 -m venv venv
 source venv/bin/activate
 3️⃣ Install Required Libraries
@@ -64,7 +60,6 @@ Extract the dataset file:
 final palmistry.zip
 
 Dataset must follow YOLO format:
-
 dataset/
 │
 ├── images/
@@ -76,7 +71,6 @@ dataset/
 │   ├── train
 │   ├── val
 │   └── test
-
 Each image must have a matching label file.
 
 Example:
@@ -85,11 +79,11 @@ images/train/palm1.jpg
 labels/train/palm1.txt
 🧠 Train the Detection Model (Optional)
 
-To train the YOLO model using the dataset:
+If you want to train the YOLO model using the dataset:
 
 yolo detect train data=dataset/data.yaml model=yolov8n.pt epochs=80 imgsz=640
 
-After training completes, the model will be saved in:
+After training, the model will be saved in:
 
 runs/detect/train/weights/best.pt
 
@@ -101,7 +95,7 @@ Start the Streamlit application:
 
 streamlit run newapp.py
 
-Then open:
+Open the application in your browser:
 
 http://localhost:8501
 🖥 How to Use
@@ -119,11 +113,11 @@ Detect palm symbols
 
 Draw bounding boxes
 
-Count symbols
+Count detected symbols
 
-Generate interpretations
+Display palm interpretation
 
-Display horoscope insights
+Generate horoscope insights
 
 📷 Webcam Capture
 
@@ -145,40 +139,44 @@ Strong career growth and success opportunities.
 High discipline and leadership potential.
 Strong professional and financial growth phase.
 Independent and innovative life journey.
-
-After this, the system displays Palm Symbol Interpretation Table:
-
-Symbol	 Count    Meaning
-Crosses	  2		   Turning points in life
-Triangle	1		   Analytical ability
-Tassels	  4		   Structural complexity
-🎯 Project Workflow
-Palm Image Input
+🔄 Project Workflow
+User Input (Palm Image / Webcam)
         │
         ▼
-Hand Region Extraction
+Image Preprocessing
+ - Rotation correction
+ - Image normalization
         │
         ▼
-Image Orientation Correction
+Palm Region Extraction
+ - Background removed
         │
         ▼
 YOLOv8 Symbol Detection
+ - Bounding box detection
         │
         ▼
 Symbol Counting
+ - Count occurrences
         │
         ▼
-Palm Meaning Interpretation
+Palm Interpretation
+ - Meaning mapping
         │
         ▼
-Zodiac & Horoscope Calculation
+Zodiac Calculation
+ - Zodiac sign detection
+ - Life path number
         │
         ▼
-Final Result Display (Streamlit UI)
+Horoscope Generation
+        │
+        ▼
+Results Display (Streamlit UI)
 💡 Notes
 
 Use clear palm images for better detection
 
 Model automatically handles rotated images
 
-Horoscope output is generated using logic defined in zodiac.py
+Horoscope output is generated using logic in zodiac.py
