@@ -28,7 +28,6 @@ Palmistry_Project
 🚀 Features
 
 ✔ Palm symbol detection using YOLOv8
-✔ Automatic image rotation correction
 ✔ Palm region extraction (background ignored)
 ✔ Symbol counting and interpretation
 ✔ Horoscope prediction using zodiac logic
@@ -144,7 +143,6 @@ User Input (Palm Image / Webcam)
         │
         ▼
 Image Preprocessing
- - Rotation correction
  - Image normalization
         │
         ▼
